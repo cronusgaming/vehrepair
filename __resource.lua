@@ -4,6 +4,4 @@ name "Easy Vehicle Repair"
 description "Easily repair your vehicle!"
 author "Michael - https://github.com/MichaelRP1"
 
-client_scripts {
-    'client.lua'
-}
+client_script 'client.lua'

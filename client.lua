@@ -1,19 +1,21 @@
 -- Easy Vehicle Repair by Michael (https://github.com/MichaelRP1)
 
-RegisterCommand("repair", function()
+RegisterCommand('repair', function(source)
     local player = GetPlayerPed(-1)
     local veh = GetVehiclePedIsIn(player, false)
-    if veh == 0
+    print(player .. veh)
+    if veh == 0 then
         notify("~b~Please enter a vehicle to use this command.")
-    else if IsVehicleDamaged(veh) == false then
+    elseif IsVehicleDamaged(veh) == false then
         notify("~b~Your vehicle is not damaged.")
-    else if player ~= GetPedInVehicleSeat(veh, -1) then
+    elseif player ~= GetPedInVehicleSeat(veh, -1) then
         notify("~b~You are not the driver. You can't repair this vehicle.")
     else
         SetVehicleEngineHealth(veh, 1000)
         SetVehicleFixed(veh)
         SetVehicleDirtLevel(veh, 0)
         notify("~g~Your vehicle has been repaired!")
+	end
 end)
 
 function notify(msg)
